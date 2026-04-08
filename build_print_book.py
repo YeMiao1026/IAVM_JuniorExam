@@ -44,6 +44,8 @@ def load_data(path: str):
                     "question_text": qtext,
                 "question_html": qhtml,
                 "item_url": (row.get("item_url") or "").strip(),
+                "answer": (row.get("answer") or "").strip(),
+                "answer_source": (row.get("answer_source") or "").strip(),
                 }
             )
 
@@ -212,6 +214,24 @@ def build_html(exams, book_title: str):
       margin-bottom: 1mm;
     }
 
+    .answer-box {
+      margin-top: 2.2mm;
+      display: inline-block;
+      background: #eaf5e8;
+      border: 1px solid #c6dfc0;
+      color: #24572b;
+      padding: 1.1mm 2.2mm;
+      border-radius: 8px;
+      font-size: 10pt;
+      font-weight: 700;
+    }
+
+    .answer-note {
+      color: #5f6f84;
+      font-size: 8.8pt;
+      margin-top: 1mm;
+    }
+
     .q-text {
       margin-top: 0.5mm;
       white-space: normal;
@@ -376,12 +396,19 @@ def build_html(exams, book_title: str):
           if item_url
           else ""
         )
+        answer = (q.get("answer") or "").strip()
+        answer_source = (q.get("answer_source") or "").strip()
+        answer_html = ""
+        if answer:
+          note = "（來源：頁面答案）" if answer_source == "explicit" else "（來源：統計推估）"
+          answer_html = f"<div class='answer-box'>答案：{escape(answer)}</div><div class='answer-note'>{note}</div>"
         practice_html = "<div class='practice-lines'><div class='line'></div><div class='line'></div></div>"
 
         parts.append(
           f"<article class='q'>"
           f"<div class='q-no'>第 {qno} 題</div>"
           f"<div class='q-text'>{pretty}</div>"
+          f"{answer_html}"
           f"{source_html}"
           f"{practice_html}"
           f"</article>\n"
