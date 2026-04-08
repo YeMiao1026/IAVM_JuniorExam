@@ -66,6 +66,8 @@ def build_html(exams, book_title: str):
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
   <title>{escape(book_title)} 題庫列印版</title>
   <style>
     @page {
