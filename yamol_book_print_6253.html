@@ -169,6 +169,11 @@
       margin-top: 1mm;
     }
 
+    .hide-answers .answer-box,
+    .hide-answers .answer-note {
+      display: none !important;
+    }
+
     .q-text {
       margin-top: 0.5mm;
       white-space: normal;
@@ -245,6 +250,45 @@
       line-height: 1.58;
     }
 
+    .answers-summary {
+      page-break-before: always;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 7mm;
+    }
+
+    .answers-summary h2 {
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 2mm;
+      margin: 0 0 4mm 0;
+    }
+
+    .answers-summary h3 {
+      margin: 5mm 0 2mm 0;
+      color: #24466f;
+      font-size: 12pt;
+    }
+
+    .answer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(78px, 1fr));
+      gap: 1.6mm;
+      margin-bottom: 2mm;
+    }
+
+    .answer-chip {
+      background: #f3f8ff;
+      border: 1px solid #cfddf1;
+      border-radius: 7px;
+      padding: 1.2mm 1.4mm;
+      font-size: 9.4pt;
+      color: #24466f;
+      white-space: nowrap;
+      text-align: center;
+    }
+
     @media print {
       .toolbar { display: none !important; }
       a { color: inherit; text-decoration: none; }
@@ -288,6 +332,7 @@
   <div class="container">
     <div class="toolbar">
       <button class="btn primary" onclick="window.print()">列印 / 另存 PDF</button>
+      <button class="btn" id="toggle-answer-btn" onclick="toggleAnswers()">隱藏答案</button>
       <button class="btn" onclick="document.body.classList.toggle('show-lines')">切換作答線</button>
       <button class="btn" onclick="document.body.classList.toggle('compact')">切換緊湊版</button>
       <span style="color:#5f6b7a;font-size:10pt;">建議：A4、邊界預設、縮放 100%</span>
@@ -298,7 +343,7 @@
       <p>題庫列印版</p>
       <p>試卷數：15 份</p>
       <p>題目數：743 題</p>
-      <p>產生時間：2026-04-08 11:42</p>
+      <p>產生時間：2026-04-08 11:49</p>
     </section>
 
     <section class="toc">
@@ -1124,6 +1169,807 @@
 <article class='q'><div class='q-no'>第 49 題</div><div class='q-text'>99	下列敘述何者正確？<br><span class='opt'>(A)</span> 評價人員不得為不公平競爭<br><span class='opt'>(B)</span> 評價人員得運用地位，承接評價案件<br><span class='opt'>(C)</span> 評價人員得運用關係，承接評價案件<br><span class='opt'>(D)</span> 以上皆非 </div><div class='answer-box'>答案：A</div><div class='answer-note'>（來源：統計推估）</div><div class='source-link'>原題連結：<a href='https://yamol.tw/item-99%09%E4%B8%8B%E5%88%97%E6%95%98%E8%BF%B0%E4%BD%95%E8%80%85%E6%AD%A3%E7%A2%BA%EF%BC%9F%0D+%28A%29+%E8%A9%95%E5%83%B9%E4%BA%BA%E5%93%A1%E4%B8%8D%E5%BE%97%E7%82%BA%E4%B8%8D%E5%85%AC%E5%B9%B3%E7%AB%B6%E7%88%AD%0D+%28B%29+%E8%A9%95%E5%83%B9%E4%BA%BA%E5%93%A1-2311142.htm' target='_blank' rel='noopener noreferrer'>開啟原題頁面</a></div><div class='practice-lines'><div class='line'></div><div class='line'></div></div></article>
 <article class='q'><div class='q-no'>第 50 題</div><div class='q-text'>100	有關「或有酬金」之敘述，下列何者正確？<br><span class='opt'>(A)</span> 「或有酬金」係指酬金之支付與否或金額多寡，與達成某種評價結 果或結果之應用無關者<br><span class='opt'>(B)</span> 「或有酬金」係指酬金之支付與否或金額多寡，與評價之價值結論 無關者<br><span class='opt'>(C)</span> 「或有酬金」係指酬金之支付與否或金額多寡，與特定評價方法之 應用有關者<br><span class='opt'>(D)</span> 「或有酬金」係指酬金之支付與否或金額多寡，與達成某種評價結 果或結果之應用有關者 </div><div class='answer-box'>答案：D</div><div class='answer-note'>（來源：統計推估）</div><div class='source-link'>原題連結：<a href='https://yamol.tw/item-100%09%E6%9C%89%E9%97%9C%E3%80%8C%E6%88%96%E6%9C%89%E9%85%AC%E9%87%91%E3%80%8D%E4%B9%8B%E6%95%98%E8%BF%B0%EF%BC%8C%E4%B8%8B%E5%88%97%E4%BD%95%E8%80%85%E6%AD%A3%E7%A2%BA%EF%BC%9F%0D+%28A%29+%E3%80%8C%E6%88%96%E6%9C%89%E9%85%AC%E9%87%91%E3%80%8D%E4%BF%82%E6%8C%87%E9%85%AC%E9%87%91%E4%B9%8B-2311143.htm' target='_blank' rel='noopener noreferrer'>開啟原題頁面</a></div><div class='practice-lines'><div class='line'></div><div class='line'></div></div></article>
 </section>
+<section class='answers-summary'>
+<h2>答案總表（獨立頁）</h2>
+<p class='meta'><span>提示：可用上方按鈕切換題目區答案顯示；此頁固定彙整全部答案。</span></p>
+<h3>110年 - 110-2 初級無形資產評價師:智慧財產概論及評價職業道德 #107981</h3>
+<div class='answer-grid'>
+<span class='answer-chip'>第 1 題：C</span>
+<span class='answer-chip'>第 2 題：D</span>
+<span class='answer-chip'>第 3 題：C</span>
+<span class='answer-chip'>第 4 題：D</span>
+<span class='answer-chip'>第 5 題：D</span>
+<span class='answer-chip'>第 6 題：D</span>
+<span class='answer-chip'>第 7 題：D</span>
+<span class='answer-chip'>第 8 題：B</span>
+<span class='answer-chip'>第 9 題：B</span>
+<span class='answer-chip'>第 10 題：C</span>
+<span class='answer-chip'>第 11 題：A</span>
+<span class='answer-chip'>第 12 題：D</span>
+<span class='answer-chip'>第 13 題：B</span>
+<span class='answer-chip'>第 14 題：D</span>
+<span class='answer-chip'>第 15 題：C</span>
+<span class='answer-chip'>第 16 題：C</span>
+<span class='answer-chip'>第 17 題：C</span>
+<span class='answer-chip'>第 18 題：B</span>
+<span class='answer-chip'>第 19 題：B</span>
+<span class='answer-chip'>第 20 題：A</span>
+<span class='answer-chip'>第 21 題：C</span>
+<span class='answer-chip'>第 22 題：D</span>
+<span class='answer-chip'>第 23 題：D</span>
+<span class='answer-chip'>第 24 題：B</span>
+<span class='answer-chip'>第 25 題：B</span>
+<span class='answer-chip'>第 26 題：C</span>
+<span class='answer-chip'>第 27 題：D</span>
+<span class='answer-chip'>第 28 題：C</span>
+<span class='answer-chip'>第 29 題：C</span>
+<span class='answer-chip'>第 30 題：C</span>
+<span class='answer-chip'>第 31 題：A</span>
+<span class='answer-chip'>第 32 題：B</span>
+<span class='answer-chip'>第 33 題：D</span>
+<span class='answer-chip'>第 34 題：D</span>
+<span class='answer-chip'>第 35 題：D</span>
+<span class='answer-chip'>第 36 題：C</span>
+<span class='answer-chip'>第 37 題：B</span>
+<span class='answer-chip'>第 38 題：B</span>
+<span class='answer-chip'>第 39 題：D</span>
+<span class='answer-chip'>第 40 題：B</span>
+<span class='answer-chip'>第 41 題：B</span>
+<span class='answer-chip'>第 42 題：D</span>
+<span class='answer-chip'>第 43 題：B</span>
+<span class='answer-chip'>第 44 題：B</span>
+<span class='answer-chip'>第 45 題：B</span>
+<span class='answer-chip'>第 46 題：E</span>
+<span class='answer-chip'>第 47 題：D</span>
+<span class='answer-chip'>第 48 題：D</span>
+<span class='answer-chip'>第 49 題：D</span>
+<span class='answer-chip'>第 50 題：D</span>
 </div>
+<h3>111年 - 111-1 初級無形資產評價管理師能力鑑定：智慧財產概論及評價職業道德#131790</h3>
+<div class='answer-grid'>
+<span class='answer-chip'>第 1 題：B</span>
+<span class='answer-chip'>第 2 題：D</span>
+<span class='answer-chip'>第 3 題：D</span>
+<span class='answer-chip'>第 4 題：A</span>
+<span class='answer-chip'>第 5 題：C</span>
+<span class='answer-chip'>第 6 題：B</span>
+<span class='answer-chip'>第 7 題：A</span>
+<span class='answer-chip'>第 8 題：E</span>
+<span class='answer-chip'>第 9 題：B</span>
+<span class='answer-chip'>第 10 題：C</span>
+<span class='answer-chip'>第 11 題：A</span>
+<span class='answer-chip'>第 12 題：B</span>
+<span class='answer-chip'>第 13 題：B</span>
+<span class='answer-chip'>第 14 題：D</span>
+<span class='answer-chip'>第 15 題：C</span>
+<span class='answer-chip'>第 16 題：D</span>
+<span class='answer-chip'>第 17 題：C</span>
+<span class='answer-chip'>第 18 題：B</span>
+<span class='answer-chip'>第 19 題：A</span>
+<span class='answer-chip'>第 20 題：A</span>
+<span class='answer-chip'>第 21 題：D</span>
+<span class='answer-chip'>第 22 題：C</span>
+<span class='answer-chip'>第 23 題：D</span>
+<span class='answer-chip'>第 24 題：B</span>
+<span class='answer-chip'>第 25 題：D</span>
+<span class='answer-chip'>第 26 題：B</span>
+<span class='answer-chip'>第 27 題：D</span>
+<span class='answer-chip'>第 28 題：C</span>
+<span class='answer-chip'>第 29 題：B</span>
+<span class='answer-chip'>第 30 題：A</span>
+<span class='answer-chip'>第 31 題：A</span>
+<span class='answer-chip'>第 32 題：C</span>
+<span class='answer-chip'>第 33 題：C</span>
+<span class='answer-chip'>第 34 題：D</span>
+<span class='answer-chip'>第 35 題：C</span>
+<span class='answer-chip'>第 36 題：D</span>
+<span class='answer-chip'>第 37 題：B</span>
+<span class='answer-chip'>第 38 題：C</span>
+<span class='answer-chip'>第 39 題：A</span>
+<span class='answer-chip'>第 40 題：A</span>
+<span class='answer-chip'>第 41 題：B</span>
+<span class='answer-chip'>第 42 題：A</span>
+<span class='answer-chip'>第 43 題：B</span>
+<span class='answer-chip'>第 44 題：C</span>
+<span class='answer-chip'>第 45 題：C</span>
+<span class='answer-chip'>第 46 題：B</span>
+<span class='answer-chip'>第 47 題：A</span>
+<span class='answer-chip'>第 48 題：A</span>
+<span class='answer-chip'>第 49 題：B</span>
+<span class='answer-chip'>第 50 題：A</span>
+</div>
+<h3>111年 - 111-2 無形資產評價管理師初級_第二科：智慧財產概論及評價職業道德#112806</h3>
+<div class='answer-grid'>
+<span class='answer-chip'>第 1 題：C</span>
+<span class='answer-chip'>第 2 題：C</span>
+<span class='answer-chip'>第 3 題：D</span>
+<span class='answer-chip'>第 4 題：C</span>
+<span class='answer-chip'>第 5 題：D</span>
+<span class='answer-chip'>第 6 題：D</span>
+<span class='answer-chip'>第 7 題：A</span>
+<span class='answer-chip'>第 8 題：D</span>
+<span class='answer-chip'>第 9 題：B</span>
+<span class='answer-chip'>第 10 題：C</span>
+<span class='answer-chip'>第 11 題：A</span>
+<span class='answer-chip'>第 12 題：C</span>
+<span class='answer-chip'>第 13 題：A</span>
+<span class='answer-chip'>第 14 題：B</span>
+<span class='answer-chip'>第 15 題：B</span>
+<span class='answer-chip'>第 16 題：A</span>
+<span class='answer-chip'>第 17 題：D</span>
+<span class='answer-chip'>第 18 題：D</span>
+<span class='answer-chip'>第 19 題：D</span>
+<span class='answer-chip'>第 20 題：C</span>
+<span class='answer-chip'>第 21 題：A</span>
+<span class='answer-chip'>第 22 題：B</span>
+<span class='answer-chip'>第 23 題：C</span>
+<span class='answer-chip'>第 24 題：C</span>
+<span class='answer-chip'>第 25 題：D</span>
+<span class='answer-chip'>第 26 題：A</span>
+<span class='answer-chip'>第 27 題：B</span>
+<span class='answer-chip'>第 28 題：C</span>
+<span class='answer-chip'>第 29 題：C</span>
+<span class='answer-chip'>第 30 題：D</span>
+<span class='answer-chip'>第 31 題：D</span>
+<span class='answer-chip'>第 32 題：C</span>
+<span class='answer-chip'>第 33 題：A</span>
+<span class='answer-chip'>第 34 題：C</span>
+<span class='answer-chip'>第 35 題：D</span>
+<span class='answer-chip'>第 36 題：A</span>
+<span class='answer-chip'>第 37 題：A</span>
+<span class='answer-chip'>第 38 題：A</span>
+<span class='answer-chip'>第 39 題：A</span>
+<span class='answer-chip'>第 40 題：B</span>
+<span class='answer-chip'>第 41 題：B</span>
+<span class='answer-chip'>第 42 題：C</span>
+<span class='answer-chip'>第 43 題：D</span>
+<span class='answer-chip'>第 44 題：D</span>
+<span class='answer-chip'>第 45 題：C</span>
+<span class='answer-chip'>第 46 題：C</span>
+<span class='answer-chip'>第 47 題：D</span>
+<span class='answer-chip'>第 48 題：B</span>
+<span class='answer-chip'>第 49 題：B</span>
+<span class='answer-chip'>第 50 題：D</span>
+</div>
+<h3>112年 - 112-1 初級無形資產評價管理師能力鑑定試題02:智慧財產概論及評價職業道德#114721</h3>
+<div class='answer-grid'>
+<span class='answer-chip'>第 1 題：B</span>
+<span class='answer-chip'>第 2 題：A</span>
+<span class='answer-chip'>第 3 題：C</span>
+<span class='answer-chip'>第 4 題：D</span>
+<span class='answer-chip'>第 5 題：D</span>
+<span class='answer-chip'>第 6 題：C</span>
+<span class='answer-chip'>第 7 題：C</span>
+<span class='answer-chip'>第 8 題：D</span>
+<span class='answer-chip'>第 9 題：C</span>
+<span class='answer-chip'>第 10 題：B</span>
+<span class='answer-chip'>第 11 題：B</span>
+<span class='answer-chip'>第 12 題：D</span>
+<span class='answer-chip'>第 13 題：C</span>
+<span class='answer-chip'>第 14 題：B</span>
+<span class='answer-chip'>第 15 題：C</span>
+<span class='answer-chip'>第 16 題：B</span>
+<span class='answer-chip'>第 17 題：C</span>
+<span class='answer-chip'>第 18 題：B</span>
+<span class='answer-chip'>第 19 題：D</span>
+<span class='answer-chip'>第 20 題：B</span>
+<span class='answer-chip'>第 21 題：C</span>
+<span class='answer-chip'>第 22 題：B</span>
+<span class='answer-chip'>第 23 題：D</span>
+<span class='answer-chip'>第 24 題：C</span>
+<span class='answer-chip'>第 25 題：B</span>
+<span class='answer-chip'>第 26 題：D</span>
+<span class='answer-chip'>第 27 題：C</span>
+<span class='answer-chip'>第 28 題：C</span>
+<span class='answer-chip'>第 29 題：D</span>
+<span class='answer-chip'>第 30 題：A</span>
+<span class='answer-chip'>第 31 題：B</span>
+<span class='answer-chip'>第 32 題：D</span>
+<span class='answer-chip'>第 33 題：C</span>
+<span class='answer-chip'>第 34 題：D</span>
+<span class='answer-chip'>第 35 題：A</span>
+<span class='answer-chip'>第 36 題：D</span>
+<span class='answer-chip'>第 37 題：C</span>
+<span class='answer-chip'>第 38 題：B</span>
+<span class='answer-chip'>第 39 題：B</span>
+<span class='answer-chip'>第 40 題：B</span>
+<span class='answer-chip'>第 41 題：C</span>
+<span class='answer-chip'>第 42 題：D</span>
+<span class='answer-chip'>第 43 題：C</span>
+<span class='answer-chip'>第 44 題：C</span>
+<span class='answer-chip'>第 45 題：D</span>
+<span class='answer-chip'>第 46 題：B</span>
+<span class='answer-chip'>第 47 題：C</span>
+<span class='answer-chip'>第 48 題：D</span>
+<span class='answer-chip'>第 49 題：D</span>
+<span class='answer-chip'>第 50 題：C</span>
+</div>
+<h3>112年 - 112-2 初級無形資產評價管理師能力鑑定試題：智慧財產概論及評價職業道德#120315</h3>
+<div class='answer-grid'>
+<span class='answer-chip'>第 1 題：C</span>
+<span class='answer-chip'>第 2 題：D</span>
+<span class='answer-chip'>第 3 題：C</span>
+<span class='answer-chip'>第 4 題：C</span>
+<span class='answer-chip'>第 5 題：A</span>
+<span class='answer-chip'>第 6 題：B</span>
+<span class='answer-chip'>第 7 題：B</span>
+<span class='answer-chip'>第 8 題：C</span>
+<span class='answer-chip'>第 9 題：A</span>
+<span class='answer-chip'>第 10 題：B</span>
+<span class='answer-chip'>第 11 題：D</span>
+<span class='answer-chip'>第 12 題：D</span>
+<span class='answer-chip'>第 13 題：C</span>
+<span class='answer-chip'>第 14 題：B</span>
+<span class='answer-chip'>第 15 題：D</span>
+<span class='answer-chip'>第 16 題：D</span>
+<span class='answer-chip'>第 17 題：D</span>
+<span class='answer-chip'>第 18 題：D</span>
+<span class='answer-chip'>第 19 題：D</span>
+<span class='answer-chip'>第 20 題：A</span>
+<span class='answer-chip'>第 21 題：D</span>
+<span class='answer-chip'>第 22 題：C</span>
+<span class='answer-chip'>第 23 題：A</span>
+<span class='answer-chip'>第 24 題：C</span>
+<span class='answer-chip'>第 25 題：A</span>
+<span class='answer-chip'>第 26 題：B</span>
+<span class='answer-chip'>第 27 題：B</span>
+<span class='answer-chip'>第 28 題：C</span>
+<span class='answer-chip'>第 29 題：A</span>
+<span class='answer-chip'>第 30 題：D</span>
+<span class='answer-chip'>第 31 題：D</span>
+<span class='answer-chip'>第 32 題：A</span>
+<span class='answer-chip'>第 33 題：B</span>
+<span class='answer-chip'>第 34 題：C</span>
+<span class='answer-chip'>第 35 題：C</span>
+<span class='answer-chip'>第 36 題：D</span>
+<span class='answer-chip'>第 37 題：B</span>
+<span class='answer-chip'>第 38 題：C</span>
+<span class='answer-chip'>第 39 題：A</span>
+<span class='answer-chip'>第 40 題：D</span>
+<span class='answer-chip'>第 41 題：D</span>
+<span class='answer-chip'>第 42 題：C</span>
+<span class='answer-chip'>第 43 題：D</span>
+<span class='answer-chip'>第 44 題：A</span>
+<span class='answer-chip'>第 45 題：D</span>
+<span class='answer-chip'>第 46 題：D</span>
+<span class='answer-chip'>第 47 題：B</span>
+<span class='answer-chip'>第 48 題：C</span>
+<span class='answer-chip'>第 49 題：C</span>
+<span class='answer-chip'>第 50 題：D</span>
+</div>
+<h3>113年 - 113-1 初級無形資產評價管理師能力鑑定試題：智慧財產概論及評價職業道德#131791</h3>
+<div class='answer-grid'>
+<span class='answer-chip'>第 1 題：D</span>
+<span class='answer-chip'>第 2 題：B</span>
+<span class='answer-chip'>第 3 題：C</span>
+<span class='answer-chip'>第 4 題：B</span>
+<span class='answer-chip'>第 5 題：B</span>
+<span class='answer-chip'>第 6 題：D</span>
+<span class='answer-chip'>第 7 題：D</span>
+<span class='answer-chip'>第 8 題：D</span>
+<span class='answer-chip'>第 9 題：A</span>
+<span class='answer-chip'>第 10 題：C</span>
+<span class='answer-chip'>第 11 題：D</span>
+<span class='answer-chip'>第 12 題：D</span>
+<span class='answer-chip'>第 13 題：C</span>
+<span class='answer-chip'>第 14 題：D</span>
+<span class='answer-chip'>第 15 題：C</span>
+<span class='answer-chip'>第 16 題：A</span>
+<span class='answer-chip'>第 17 題：B</span>
+<span class='answer-chip'>第 18 題：D</span>
+<span class='answer-chip'>第 19 題：C</span>
+<span class='answer-chip'>第 20 題：D</span>
+<span class='answer-chip'>第 21 題：B</span>
+<span class='answer-chip'>第 22 題：C</span>
+<span class='answer-chip'>第 23 題：C</span>
+<span class='answer-chip'>第 24 題：B</span>
+<span class='answer-chip'>第 25 題：B</span>
+<span class='answer-chip'>第 26 題：C</span>
+<span class='answer-chip'>第 27 題：D</span>
+<span class='answer-chip'>第 28 題：C</span>
+<span class='answer-chip'>第 29 題：D</span>
+<span class='answer-chip'>第 30 題：C</span>
+<span class='answer-chip'>第 31 題：C</span>
+<span class='answer-chip'>第 32 題：D</span>
+<span class='answer-chip'>第 33 題：B</span>
+<span class='answer-chip'>第 34 題：B</span>
+<span class='answer-chip'>第 35 題：D</span>
+<span class='answer-chip'>第 36 題：B</span>
+<span class='answer-chip'>第 37 題：D</span>
+<span class='answer-chip'>第 38 題：C</span>
+<span class='answer-chip'>第 39 題：D</span>
+<span class='answer-chip'>第 40 題：B</span>
+<span class='answer-chip'>第 41 題：C</span>
+<span class='answer-chip'>第 42 題：A</span>
+<span class='answer-chip'>第 43 題：B</span>
+<span class='answer-chip'>第 44 題：C</span>
+<span class='answer-chip'>第 45 題：D</span>
+<span class='answer-chip'>第 46 題：C</span>
+<span class='answer-chip'>第 47 題：D</span>
+<span class='answer-chip'>第 48 題：D</span>
+<span class='answer-chip'>第 49 題：C</span>
+<span class='answer-chip'>第 50 題：D</span>
+</div>
+<h3>113年 - 113-2 初級無形資產評價管理師能力鑑定試題：智慧財產概論及評價職業道德#124030</h3>
+<div class='answer-grid'>
+<span class='answer-chip'>第 1 題：C</span>
+<span class='answer-chip'>第 2 題：D</span>
+<span class='answer-chip'>第 3 題：C</span>
+<span class='answer-chip'>第 4 題：C</span>
+<span class='answer-chip'>第 5 題：C</span>
+<span class='answer-chip'>第 6 題：A</span>
+<span class='answer-chip'>第 7 題：B</span>
+<span class='answer-chip'>第 8 題：D</span>
+<span class='answer-chip'>第 9 題：D</span>
+<span class='answer-chip'>第 10 題：D</span>
+<span class='answer-chip'>第 11 題：A</span>
+<span class='answer-chip'>第 12 題：C</span>
+<span class='answer-chip'>第 13 題：D</span>
+<span class='answer-chip'>第 14 題：C</span>
+<span class='answer-chip'>第 15 題：D</span>
+<span class='answer-chip'>第 16 題：A</span>
+<span class='answer-chip'>第 17 題：D</span>
+<span class='answer-chip'>第 18 題：A</span>
+<span class='answer-chip'>第 19 題：D</span>
+<span class='answer-chip'>第 20 題：C</span>
+<span class='answer-chip'>第 21 題：B</span>
+<span class='answer-chip'>第 22 題：B</span>
+<span class='answer-chip'>第 23 題：B</span>
+<span class='answer-chip'>第 24 題：C</span>
+<span class='answer-chip'>第 25 題：D</span>
+<span class='answer-chip'>第 26 題：C</span>
+<span class='answer-chip'>第 27 題：D</span>
+<span class='answer-chip'>第 28 題：D</span>
+<span class='answer-chip'>第 29 題：D</span>
+<span class='answer-chip'>第 30 題：C</span>
+<span class='answer-chip'>第 31 題：B</span>
+<span class='answer-chip'>第 32 題：B</span>
+<span class='answer-chip'>第 33 題：C</span>
+<span class='answer-chip'>第 34 題：A</span>
+<span class='answer-chip'>第 35 題：C</span>
+<span class='answer-chip'>第 36 題：A</span>
+<span class='answer-chip'>第 37 題：D</span>
+<span class='answer-chip'>第 38 題：A</span>
+<span class='answer-chip'>第 39 題：C</span>
+<span class='answer-chip'>第 40 題：B</span>
+<span class='answer-chip'>第 41 題：A</span>
+<span class='answer-chip'>第 42 題：A</span>
+<span class='answer-chip'>第 43 題：A</span>
+<span class='answer-chip'>第 44 題：A</span>
+<span class='answer-chip'>第 45 題：D</span>
+<span class='answer-chip'>第 46 題：A</span>
+<span class='answer-chip'>第 47 題：C</span>
+<span class='answer-chip'>第 48 題：A</span>
+<span class='answer-chip'>第 49 題：C</span>
+<span class='answer-chip'>第 50 題：D</span>
+</div>
+<h3>114年 - 114-1 初級無形資產評價管理師能力鑑定：智慧財產概論及評價職業道德#131782</h3>
+<div class='answer-grid'>
+<span class='answer-chip'>第 1 題：C</span>
+<span class='answer-chip'>第 2 題：B</span>
+<span class='answer-chip'>第 3 題：D</span>
+<span class='answer-chip'>第 4 題：C</span>
+<span class='answer-chip'>第 5 題：A</span>
+<span class='answer-chip'>第 6 題：C</span>
+<span class='answer-chip'>第 7 題：B</span>
+<span class='answer-chip'>第 8 題：C</span>
+<span class='answer-chip'>第 9 題：A</span>
+<span class='answer-chip'>第 10 題：D</span>
+<span class='answer-chip'>第 11 題：C</span>
+<span class='answer-chip'>第 12 題：B</span>
+<span class='answer-chip'>第 13 題：B</span>
+<span class='answer-chip'>第 14 題：B</span>
+<span class='answer-chip'>第 15 題：C</span>
+<span class='answer-chip'>第 16 題：C</span>
+<span class='answer-chip'>第 17 題：B</span>
+<span class='answer-chip'>第 18 題：A</span>
+<span class='answer-chip'>第 19 題：C</span>
+<span class='answer-chip'>第 20 題：D</span>
+<span class='answer-chip'>第 21 題：D</span>
+<span class='answer-chip'>第 22 題：B</span>
+<span class='answer-chip'>第 23 題：B</span>
+<span class='answer-chip'>第 24 題：D</span>
+<span class='answer-chip'>第 25 題：C</span>
+<span class='answer-chip'>第 26 題：C</span>
+<span class='answer-chip'>第 27 題：B</span>
+<span class='answer-chip'>第 28 題：B</span>
+<span class='answer-chip'>第 29 題：B</span>
+<span class='answer-chip'>第 30 題：C</span>
+<span class='answer-chip'>第 31 題：A</span>
+<span class='answer-chip'>第 32 題：B</span>
+<span class='answer-chip'>第 33 題：A</span>
+<span class='answer-chip'>第 34 題：D</span>
+<span class='answer-chip'>第 35 題：A</span>
+<span class='answer-chip'>第 36 題：D</span>
+<span class='answer-chip'>第 37 題：A</span>
+<span class='answer-chip'>第 38 題：C</span>
+<span class='answer-chip'>第 39 題：C</span>
+<span class='answer-chip'>第 40 題：D</span>
+<span class='answer-chip'>第 41 題：C</span>
+<span class='answer-chip'>第 42 題：A</span>
+<span class='answer-chip'>第 43 題：C</span>
+<span class='answer-chip'>第 44 題：D</span>
+<span class='answer-chip'>第 45 題：C</span>
+<span class='answer-chip'>第 46 題：D</span>
+<span class='answer-chip'>第 47 題：D</span>
+<span class='answer-chip'>第 48 題：D</span>
+<span class='answer-chip'>第 49 題：C</span>
+<span class='answer-chip'>第 50 題：D</span>
+</div>
+<h3>114年 - 114-2 無形資產評價管理師-初級能力鑑定試題：智慧財產概論及評價職業道德#133456</h3>
+<div class='answer-grid'>
+<span class='answer-chip'>第 1 題：C</span>
+<span class='answer-chip'>第 2 題：B</span>
+<span class='answer-chip'>第 3 題：A</span>
+<span class='answer-chip'>第 4 題：C</span>
+<span class='answer-chip'>第 5 題：D</span>
+<span class='answer-chip'>第 6 題：D</span>
+<span class='answer-chip'>第 7 題：C</span>
+<span class='answer-chip'>第 8 題：C</span>
+<span class='answer-chip'>第 9 題：C</span>
+<span class='answer-chip'>第 10 題：B</span>
+<span class='answer-chip'>第 11 題：C</span>
+<span class='answer-chip'>第 12 題：B</span>
+<span class='answer-chip'>第 13 題：C</span>
+<span class='answer-chip'>第 14 題：D</span>
+<span class='answer-chip'>第 15 題：B</span>
+<span class='answer-chip'>第 16 題：D</span>
+<span class='answer-chip'>第 17 題：C</span>
+<span class='answer-chip'>第 18 題：B</span>
+<span class='answer-chip'>第 19 題：A</span>
+<span class='answer-chip'>第 20 題：D</span>
+<span class='answer-chip'>第 21 題：D</span>
+<span class='answer-chip'>第 22 題：C</span>
+<span class='answer-chip'>第 23 題：D</span>
+<span class='answer-chip'>第 24 題：C</span>
+<span class='answer-chip'>第 25 題：B</span>
+<span class='answer-chip'>第 26 題：B</span>
+<span class='answer-chip'>第 27 題：B</span>
+<span class='answer-chip'>第 28 題：C</span>
+<span class='answer-chip'>第 29 題：D</span>
+<span class='answer-chip'>第 30 題：C</span>
+<span class='answer-chip'>第 31 題：D</span>
+<span class='answer-chip'>第 32 題：A</span>
+<span class='answer-chip'>第 33 題：A</span>
+<span class='answer-chip'>第 34 題：A</span>
+<span class='answer-chip'>第 35 題：D</span>
+<span class='answer-chip'>第 36 題：C</span>
+<span class='answer-chip'>第 37 題：D</span>
+<span class='answer-chip'>第 38 題：B</span>
+<span class='answer-chip'>第 39 題：D</span>
+<span class='answer-chip'>第 40 題：D</span>
+<span class='answer-chip'>第 41 題：A</span>
+<span class='answer-chip'>第 42 題：A</span>
+<span class='answer-chip'>第 43 題：D</span>
+<span class='answer-chip'>第 44 題：D</span>
+<span class='answer-chip'>第 45 題：A</span>
+<span class='answer-chip'>第 46 題：B</span>
+<span class='answer-chip'>第 47 題：C</span>
+<span class='answer-chip'>第 48 題：D</span>
+<span class='answer-chip'>第 49 題：A</span>
+<span class='answer-chip'>第 50 題：C</span>
+</div>
+<h3>無年度 - 無形資產評價管理師(初級)能力鑑定：智慧財產概論及評價職業道德1-50#85701</h3>
+<div class='answer-grid'>
+<span class='answer-chip'>第 1 題：D</span>
+<span class='answer-chip'>第 2 題：D</span>
+<span class='answer-chip'>第 3 題：D</span>
+<span class='answer-chip'>第 4 題：C</span>
+<span class='answer-chip'>第 5 題：B</span>
+<span class='answer-chip'>第 6 題：B</span>
+<span class='answer-chip'>第 7 題：B</span>
+<span class='answer-chip'>第 8 題：D</span>
+<span class='answer-chip'>第 9 題：A</span>
+<span class='answer-chip'>第 10 題：C</span>
+<span class='answer-chip'>第 11 題：A</span>
+<span class='answer-chip'>第 12 題：A</span>
+<span class='answer-chip'>第 13 題：D</span>
+<span class='answer-chip'>第 14 題：C</span>
+<span class='answer-chip'>第 15 題：D</span>
+<span class='answer-chip'>第 16 題：D</span>
+<span class='answer-chip'>第 17 題：B</span>
+<span class='answer-chip'>第 18 題：A</span>
+<span class='answer-chip'>第 19 題：A</span>
+<span class='answer-chip'>第 20 題：B</span>
+<span class='answer-chip'>第 21 題：C</span>
+<span class='answer-chip'>第 22 題：D</span>
+<span class='answer-chip'>第 23 題：C</span>
+<span class='answer-chip'>第 24 題：C</span>
+<span class='answer-chip'>第 25 題：D</span>
+<span class='answer-chip'>第 26 題：A</span>
+<span class='answer-chip'>第 27 題：B</span>
+<span class='answer-chip'>第 28 題：D</span>
+<span class='answer-chip'>第 29 題：A</span>
+<span class='answer-chip'>第 30 題：C</span>
+<span class='answer-chip'>第 31 題：C</span>
+<span class='answer-chip'>第 32 題：A</span>
+<span class='answer-chip'>第 33 題：D</span>
+<span class='answer-chip'>第 34 題：D</span>
+<span class='answer-chip'>第 35 題：C</span>
+<span class='answer-chip'>第 36 題：D</span>
+<span class='answer-chip'>第 37 題：C</span>
+<span class='answer-chip'>第 38 題：B</span>
+<span class='answer-chip'>第 39 題：C</span>
+<span class='answer-chip'>第 40 題：D</span>
+<span class='answer-chip'>第 41 題：C</span>
+<span class='answer-chip'>第 42 題：A</span>
+<span class='answer-chip'>第 43 題：B</span>
+<span class='answer-chip'>第 44 題：B</span>
+<span class='answer-chip'>第 45 題：A</span>
+<span class='answer-chip'>第 46 題：C</span>
+<span class='answer-chip'>第 47 題：C</span>
+<span class='answer-chip'>第 48 題：B</span>
+<span class='answer-chip'>第 49 題：A</span>
+<span class='answer-chip'>第 50 題：C</span>
+</div>
+<h3>無年度 - 無形資產評價管理師(初級)能力鑑定：智慧財產概論及評價職業道德101-150#85718</h3>
+<div class='answer-grid'>
+<span class='answer-chip'>第 1 題：B</span>
+<span class='answer-chip'>第 2 題：D</span>
+<span class='answer-chip'>第 3 題：A</span>
+<span class='answer-chip'>第 4 題：B</span>
+<span class='answer-chip'>第 5 題：A</span>
+<span class='answer-chip'>第 6 題：A</span>
+<span class='answer-chip'>第 7 題：B</span>
+<span class='answer-chip'>第 8 題：D</span>
+<span class='answer-chip'>第 9 題：C</span>
+<span class='answer-chip'>第 10 題：C</span>
+<span class='answer-chip'>第 11 題：D</span>
+<span class='answer-chip'>第 12 題：C</span>
+<span class='answer-chip'>第 13 題：D</span>
+<span class='answer-chip'>第 14 題：C</span>
+<span class='answer-chip'>第 15 題：A</span>
+<span class='answer-chip'>第 16 題：B</span>
+<span class='answer-chip'>第 17 題：D</span>
+<span class='answer-chip'>第 18 題：D</span>
+<span class='answer-chip'>第 19 題：B</span>
+<span class='answer-chip'>第 20 題：D</span>
+<span class='answer-chip'>第 21 題：D</span>
+<span class='answer-chip'>第 22 題：D</span>
+<span class='answer-chip'>第 23 題：C</span>
+<span class='answer-chip'>第 24 題：C</span>
+<span class='answer-chip'>第 25 題：B</span>
+<span class='answer-chip'>第 26 題：B</span>
+<span class='answer-chip'>第 27 題：D</span>
+<span class='answer-chip'>第 28 題：B</span>
+<span class='answer-chip'>第 29 題：D</span>
+<span class='answer-chip'>第 30 題：B</span>
+<span class='answer-chip'>第 31 題：D</span>
+<span class='answer-chip'>第 32 題：C</span>
+<span class='answer-chip'>第 33 題：A</span>
+<span class='answer-chip'>第 34 題：B</span>
+<span class='answer-chip'>第 35 題：D</span>
+<span class='answer-chip'>第 36 題：C</span>
+<span class='answer-chip'>第 37 題：C</span>
+<span class='answer-chip'>第 38 題：D</span>
+<span class='answer-chip'>第 39 題：C</span>
+<span class='answer-chip'>第 40 題：B</span>
+<span class='answer-chip'>第 41 題：A</span>
+<span class='answer-chip'>第 42 題：A</span>
+<span class='answer-chip'>第 43 題：B</span>
+<span class='answer-chip'>第 44 題：A</span>
+<span class='answer-chip'>第 45 題：A</span>
+<span class='answer-chip'>第 46 題：D</span>
+<span class='answer-chip'>第 47 題：D</span>
+<span class='answer-chip'>第 48 題：A</span>
+<span class='answer-chip'>第 49 題：D</span>
+<span class='answer-chip'>第 50 題：D</span>
+</div>
+<h3>無年度 - 無形資產評價管理師(初級)能力鑑定：智慧財產概論及評價職業道德151-200#85722</h3>
+<div class='answer-grid'>
+<span class='answer-chip'>第 1 題：D</span>
+<span class='answer-chip'>第 2 題：D</span>
+<span class='answer-chip'>第 3 題：D</span>
+<span class='answer-chip'>第 4 題：C</span>
+<span class='answer-chip'>第 5 題：C</span>
+<span class='answer-chip'>第 6 題：C</span>
+<span class='answer-chip'>第 7 題：D</span>
+<span class='answer-chip'>第 8 題：D</span>
+<span class='answer-chip'>第 9 題：B</span>
+<span class='answer-chip'>第 10 題：D</span>
+<span class='answer-chip'>第 11 題：C</span>
+<span class='answer-chip'>第 12 題：C</span>
+<span class='answer-chip'>第 13 題：A</span>
+<span class='answer-chip'>第 14 題：C</span>
+<span class='answer-chip'>第 15 題：A</span>
+<span class='answer-chip'>第 16 題：A</span>
+<span class='answer-chip'>第 17 題：C</span>
+<span class='answer-chip'>第 18 題：C</span>
+<span class='answer-chip'>第 19 題：D</span>
+<span class='answer-chip'>第 20 題：C</span>
+<span class='answer-chip'>第 21 題：B</span>
+<span class='answer-chip'>第 22 題：D</span>
+<span class='answer-chip'>第 23 題：C</span>
+<span class='answer-chip'>第 24 題：C</span>
+<span class='answer-chip'>第 25 題：D</span>
+<span class='answer-chip'>第 26 題：C</span>
+<span class='answer-chip'>第 27 題：D</span>
+<span class='answer-chip'>第 28 題：D</span>
+<span class='answer-chip'>第 29 題：D</span>
+<span class='answer-chip'>第 30 題：A</span>
+<span class='answer-chip'>第 31 題：A</span>
+<span class='answer-chip'>第 32 題：D</span>
+<span class='answer-chip'>第 33 題：C</span>
+<span class='answer-chip'>第 34 題：A</span>
+<span class='answer-chip'>第 35 題：D</span>
+<span class='answer-chip'>第 36 題：D</span>
+<span class='answer-chip'>第 37 題：A</span>
+<span class='answer-chip'>第 38 題：D</span>
+<span class='answer-chip'>第 39 題：C</span>
+<span class='answer-chip'>第 40 題：D</span>
+<span class='answer-chip'>第 41 題：A</span>
+<span class='answer-chip'>第 42 題：D</span>
+<span class='answer-chip'>第 43 題：B</span>
+<span class='answer-chip'>第 44 題：B</span>
+<span class='answer-chip'>第 45 題：A</span>
+<span class='answer-chip'>第 46 題：C</span>
+<span class='answer-chip'>第 47 題：B</span>
+<span class='answer-chip'>第 48 題：B</span>
+<span class='answer-chip'>第 49 題：D</span>
+<span class='answer-chip'>第 50 題：A</span>
+</div>
+<h3>無年度 - 無形資產評價管理師(初級)能力鑑定：智慧財產概論及評價職業道德201-250#85728</h3>
+<div class='answer-grid'>
+<span class='answer-chip'>第 1 題：D</span>
+<span class='answer-chip'>第 2 題：B</span>
+<span class='answer-chip'>第 3 題：C</span>
+<span class='answer-chip'>第 4 題：A</span>
+<span class='answer-chip'>第 5 題：D</span>
+<span class='answer-chip'>第 6 題：D</span>
+<span class='answer-chip'>第 7 題：A</span>
+<span class='answer-chip'>第 8 題：D</span>
+<span class='answer-chip'>第 9 題：C</span>
+<span class='answer-chip'>第 10 題：D</span>
+<span class='answer-chip'>第 11 題：B</span>
+<span class='answer-chip'>第 12 題：C</span>
+<span class='answer-chip'>第 13 題：B</span>
+<span class='answer-chip'>第 14 題：D</span>
+<span class='answer-chip'>第 15 題：A</span>
+<span class='answer-chip'>第 16 題：B</span>
+<span class='answer-chip'>第 17 題：D</span>
+<span class='answer-chip'>第 18 題：D</span>
+<span class='answer-chip'>第 19 題：B</span>
+<span class='answer-chip'>第 20 題：D</span>
+<span class='answer-chip'>第 21 題：C</span>
+<span class='answer-chip'>第 22 題：D</span>
+<span class='answer-chip'>第 23 題：D</span>
+<span class='answer-chip'>第 24 題：B</span>
+<span class='answer-chip'>第 25 題：A</span>
+<span class='answer-chip'>第 26 題：D</span>
+<span class='answer-chip'>第 27 題：D</span>
+<span class='answer-chip'>第 28 題：B</span>
+<span class='answer-chip'>第 29 題：A</span>
+<span class='answer-chip'>第 30 題：C</span>
+<span class='answer-chip'>第 31 題：D</span>
+<span class='answer-chip'>第 32 題：B</span>
+<span class='answer-chip'>第 33 題：D</span>
+<span class='answer-chip'>第 34 題：A</span>
+<span class='answer-chip'>第 35 題：B</span>
+<span class='answer-chip'>第 36 題：B</span>
+<span class='answer-chip'>第 37 題：C</span>
+<span class='answer-chip'>第 38 題：B</span>
+<span class='answer-chip'>第 39 題：A</span>
+<span class='answer-chip'>第 40 題：D</span>
+<span class='answer-chip'>第 41 題：C</span>
+<span class='answer-chip'>第 42 題：A</span>
+<span class='answer-chip'>第 43 題：C</span>
+<span class='answer-chip'>第 44 題：D</span>
+<span class='answer-chip'>第 45 題：B</span>
+<span class='answer-chip'>第 46 題：A</span>
+<span class='answer-chip'>第 47 題：D</span>
+<span class='answer-chip'>第 48 題：A</span>
+<span class='answer-chip'>第 49 題：C</span>
+<span class='answer-chip'>第 50 題：D</span>
+</div>
+<h3>無年度 - 無形資產評價管理師(初級)能力鑑定：智慧財產概論及評價職業道德251-293#85759</h3>
+<div class='answer-grid'>
+<span class='answer-chip'>第 1 題：D</span>
+<span class='answer-chip'>第 2 題：C</span>
+<span class='answer-chip'>第 3 題：A</span>
+<span class='answer-chip'>第 4 題：C</span>
+<span class='answer-chip'>第 5 題：C</span>
+<span class='answer-chip'>第 6 題：D</span>
+<span class='answer-chip'>第 7 題：A</span>
+<span class='answer-chip'>第 8 題：D</span>
+<span class='answer-chip'>第 9 題：D</span>
+<span class='answer-chip'>第 10 題：C</span>
+<span class='answer-chip'>第 11 題：D</span>
+<span class='answer-chip'>第 12 題：B/C</span>
+<span class='answer-chip'>第 13 題：C</span>
+<span class='answer-chip'>第 14 題：D</span>
+<span class='answer-chip'>第 15 題：B</span>
+<span class='answer-chip'>第 16 題：C</span>
+<span class='answer-chip'>第 17 題：C</span>
+<span class='answer-chip'>第 18 題：C</span>
+<span class='answer-chip'>第 19 題：D</span>
+<span class='answer-chip'>第 20 題：D</span>
+<span class='answer-chip'>第 21 題：C</span>
+<span class='answer-chip'>第 22 題：D</span>
+<span class='answer-chip'>第 23 題：C</span>
+<span class='answer-chip'>第 24 題：C</span>
+<span class='answer-chip'>第 25 題：B</span>
+<span class='answer-chip'>第 26 題：A</span>
+<span class='answer-chip'>第 27 題：B</span>
+<span class='answer-chip'>第 28 題：C</span>
+<span class='answer-chip'>第 29 題：C</span>
+<span class='answer-chip'>第 30 題：D</span>
+<span class='answer-chip'>第 31 題：D</span>
+<span class='answer-chip'>第 32 題：A</span>
+<span class='answer-chip'>第 33 題：A</span>
+<span class='answer-chip'>第 34 題：B</span>
+<span class='answer-chip'>第 35 題：A</span>
+<span class='answer-chip'>第 36 題：B</span>
+<span class='answer-chip'>第 37 題：A</span>
+<span class='answer-chip'>第 38 題：D</span>
+<span class='answer-chip'>第 39 題：C</span>
+<span class='answer-chip'>第 40 題：B</span>
+<span class='answer-chip'>第 41 題：C</span>
+<span class='answer-chip'>第 42 題：D</span>
+<span class='answer-chip'>第 43 題：D</span>
+</div>
+<h3>無年度 - 無形資產評價管理師(初級)能力鑑定：智慧財產概論及評價職業道德51-100#85703</h3>
+<div class='answer-grid'>
+<span class='answer-chip'>第 1 題：B</span>
+<span class='answer-chip'>第 2 題：B</span>
+<span class='answer-chip'>第 3 題：D</span>
+<span class='answer-chip'>第 4 題：C</span>
+<span class='answer-chip'>第 5 題：C</span>
+<span class='answer-chip'>第 6 題：D</span>
+<span class='answer-chip'>第 7 題：A</span>
+<span class='answer-chip'>第 8 題：A</span>
+<span class='answer-chip'>第 9 題：B</span>
+<span class='answer-chip'>第 10 題：A</span>
+<span class='answer-chip'>第 11 題：D</span>
+<span class='answer-chip'>第 12 題：B</span>
+<span class='answer-chip'>第 13 題：C</span>
+<span class='answer-chip'>第 14 題：C</span>
+<span class='answer-chip'>第 15 題：A</span>
+<span class='answer-chip'>第 16 題：A</span>
+<span class='answer-chip'>第 17 題：B</span>
+<span class='answer-chip'>第 18 題：B</span>
+<span class='answer-chip'>第 19 題：D</span>
+<span class='answer-chip'>第 20 題：C</span>
+<span class='answer-chip'>第 21 題：C</span>
+<span class='answer-chip'>第 22 題：D</span>
+<span class='answer-chip'>第 23 題：D</span>
+<span class='answer-chip'>第 24 題：B</span>
+<span class='answer-chip'>第 25 題：A</span>
+<span class='answer-chip'>第 26 題：A</span>
+<span class='answer-chip'>第 27 題：A</span>
+<span class='answer-chip'>第 28 題：C</span>
+<span class='answer-chip'>第 29 題：C</span>
+<span class='answer-chip'>第 30 題：A</span>
+<span class='answer-chip'>第 31 題：D</span>
+<span class='answer-chip'>第 32 題：A</span>
+<span class='answer-chip'>第 33 題：C</span>
+<span class='answer-chip'>第 34 題：B</span>
+<span class='answer-chip'>第 35 題：D</span>
+<span class='answer-chip'>第 36 題：A</span>
+<span class='answer-chip'>第 37 題：C</span>
+<span class='answer-chip'>第 38 題：D</span>
+<span class='answer-chip'>第 39 題：C</span>
+<span class='answer-chip'>第 40 題：D</span>
+<span class='answer-chip'>第 41 題：A</span>
+<span class='answer-chip'>第 42 題：C</span>
+<span class='answer-chip'>第 43 題：C</span>
+<span class='answer-chip'>第 44 題：C</span>
+<span class='answer-chip'>第 45 題：B</span>
+<span class='answer-chip'>第 46 題：C</span>
+<span class='answer-chip'>第 47 題：A</span>
+<span class='answer-chip'>第 48 題：B</span>
+<span class='answer-chip'>第 49 題：A</span>
+<span class='answer-chip'>第 50 題：D</span>
+</div>
+</section>
+
+  </div>
+  <script>
+    function toggleAnswers() {
+      document.body.classList.toggle('hide-answers');
+      const btn = document.getElementById('toggle-answer-btn');
+      if (!btn) return;
+      btn.textContent = document.body.classList.contains('hide-answers') ? '顯示答案' : '隱藏答案';
+    }
+  </script>
 </body>
 </html>

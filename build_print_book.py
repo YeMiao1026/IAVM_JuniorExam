@@ -232,6 +232,11 @@ def build_html(exams, book_title: str):
       margin-top: 1mm;
     }
 
+    .hide-answers .answer-box,
+    .hide-answers .answer-note {
+      display: none !important;
+    }
+
     .q-text {
       margin-top: 0.5mm;
       white-space: normal;
@@ -308,6 +313,45 @@ def build_html(exams, book_title: str):
       line-height: 1.58;
     }
 
+    .answers-summary {
+      page-break-before: always;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 7mm;
+    }
+
+    .answers-summary h2 {
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 2mm;
+      margin: 0 0 4mm 0;
+    }
+
+    .answers-summary h3 {
+      margin: 5mm 0 2mm 0;
+      color: #24466f;
+      font-size: 12pt;
+    }
+
+    .answer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(78px, 1fr));
+      gap: 1.6mm;
+      margin-bottom: 2mm;
+    }
+
+    .answer-chip {
+      background: #f3f8ff;
+      border: 1px solid #cfddf1;
+      border-radius: 7px;
+      padding: 1.2mm 1.4mm;
+      font-size: 9.4pt;
+      color: #24466f;
+      white-space: nowrap;
+      text-align: center;
+    }
+
     @media print {
       .toolbar { display: none !important; }
       a { color: inherit; text-decoration: none; }
@@ -351,6 +395,7 @@ def build_html(exams, book_title: str):
   <div class="container">
     <div class="toolbar">
       <button class="btn primary" onclick="window.print()">列印 / 另存 PDF</button>
+      <button class="btn" id="toggle-answer-btn" onclick="toggleAnswers()">隱藏答案</button>
       <button class="btn" onclick="document.body.classList.toggle('show-lines')">切換作答線</button>
       <button class="btn" onclick="document.body.classList.toggle('compact')">切換緊湊版</button>
       <span style="color:#5f6b7a;font-size:10pt;">建議：A4、邊界預設、縮放 100%</span>
@@ -416,7 +461,36 @@ def build_html(exams, book_title: str):
 
       parts.append("</section>\n")
 
-    parts.append("</div>\n</body>\n</html>\n")
+    parts.append("<section class='answers-summary'>\n")
+    parts.append("<h2>答案總表（獨立頁）</h2>\n")
+    parts.append("<p class='meta'><span>提示：可用上方按鈕切換題目區答案顯示；此頁固定彙整全部答案。</span></p>\n")
+
+    for title, questions in exams.items():
+      parts.append(f"<h3>{escape(title)}</h3>\n")
+      parts.append("<div class='answer-grid'>\n")
+      for q in questions:
+        qno = q["question_no"]
+        answer = (q.get("answer") or "").strip() or "-"
+        parts.append(f"<span class='answer-chip'>第 {qno} 題：{escape(answer)}</span>\n")
+      parts.append("</div>\n")
+
+    parts.append("</section>\n")
+
+    parts.append(
+      """
+  </div>
+  <script>
+    function toggleAnswers() {
+      document.body.classList.toggle('hide-answers');
+      const btn = document.getElementById('toggle-answer-btn');
+      if (!btn) return;
+      btn.textContent = document.body.classList.contains('hide-answers') ? '顯示答案' : '隱藏答案';
+    }
+  </script>
+</body>
+</html>
+"""
+    )
     return "".join(parts)
 
 
